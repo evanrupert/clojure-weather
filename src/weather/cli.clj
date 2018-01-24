@@ -6,7 +6,7 @@
 (def cli-specs [["-l" "--location" :default false]
                 ["-c" "--city"     :default false]
                 ["-i" "--id"       :default false]
-                ["-z" "--zip-code" :default false] 
+                ["-z" "--zip-code" :default false]
                 ["-h" "--help"]])
 
 (defn parse-args
@@ -50,5 +50,4 @@
           (System/exit 0))
       nil
         (raise-error "Valid specifier not given")
-      "default"
-        parsed)))
+      parsed)))

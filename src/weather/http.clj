@@ -2,9 +2,14 @@
   (:gen-class))
 
 (require '[clj-http.client :as client])
-(require '[clojure.data.json :as json])
 
-(def base-url "api.openweathermap.org/data/2.5/weather?")
+
+(def api-key (or (System/getenv "OPENWEATHER_API_KEY") 
+               (do
+                 (println "Api Key not configured")
+                 (System/exit 1))))
+(def base-url (str "http://api.openweathermap.org/data/2.5/weather?APPID=" api-key "&"))
+
 
 (defn request-data
   [parsed]
@@ -13,7 +18,7 @@
       :location
         (let [[lat lon] args]
           (client/get
-            (str base-url "lat=" lat "lon=" lon)))
+            (str base-url "lat=" lat "&lon=" lon)))
       :city
         (let [[name] args]
           (client/get
@@ -30,10 +35,4 @@
         (do
           (println "Failed to parse arguments")
           (System/exit 0)))))
-    
-;; TODO: Finish
-(defn get-temp
-  [data]
-  (-> data
-      :main
-      :temp))
+      
