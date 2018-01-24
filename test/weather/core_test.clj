@@ -20,3 +20,4 @@
 (deftest kelvin->fahrenheit-test
   (testing "kelvin->fahrenheit test"
     (is (= -100 (Math/round (kelvin->fahrenheit 200))))))
+
