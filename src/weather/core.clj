@@ -23,15 +23,13 @@
 
 (defn -main
   [& args]
-  (if (= (count args) 0)
-    (do
-      (println "No arguments passed")
-      (System/exit 1))
+  (if (not= (count args) 0)
     (-> args
         cli/parse-args
-        cli/handle-cli-errors
+        cli-handle-cli-errors
         http/request-data
         parse-json
         get-temp
         kelvin->fahrenheit
-        println)))
+        println)
+    (println "No arguments passed")))
