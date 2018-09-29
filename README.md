@@ -1,32 +1,21 @@
-# weather
+# Clojure CLI weather
 
-FIXME: description
-
-## Installation
-
-Download from http://example.com/FIXME.
+Command interface to display the current weather given a location identifier
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar weather-0.1.0-standalone.jar [args]
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+weather <command>
+  Commands
+  - description | Get current weather description
+  - temperature | Get current temperature
+  - wind-speed  | Get current wind speed
+  - humidity    | Get current humidity
+  Location options
+  -l | --location   Get weather at given latitude and longitude\n
+  -c | --city       Get weather at given city name\n
+  -i | --id         Get weather at given city id\n
+  -z | --zip-code   Get weather at given zip code\n
+  -h | --help       Display this help message\n
 
 ## License
 
